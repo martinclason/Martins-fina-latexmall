@@ -1,0 +1,22 @@
+% Det här är moder-filen. Det är denna som renderas och därför importeras allt man vill rendera med \input
+
+\input{setup/preamble.tex}
+\input{setup/hyphenations.tex}
+
+\begin{document}
+\selectlanguage{swedish}
+\input{content/frontpage.tex}
+\pagenumbering{roman} %use roman page numbering in the frontmatter
+\pagestyle{empty}
+%\input{content/sammanfattning.tex}
+\tableofcontents
+\clearpage
+%\listoftodos
+\cleardoublepage
+\pagenumbering{arabic} %use arabic page numbering in the mainmatter
+\pagestyle{main}
+\input{content/content.tex}
+%\printbibliography[heading=bibintoc]
+%\appendix
+%\input{content/appAname.tex}
+\end{document}

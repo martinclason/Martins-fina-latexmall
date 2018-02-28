@@ -1,0 +1,45 @@
+% Den här filen ritar upp framsidan.
+
+\pdfbookmark[0]{Front page}{label:frontpage}%
+\begin{titlepage}
+	\thispagestyle{titlestyle}
+	\newgeometry{margin=2cm,top=15mm,bottom=4cm,includehead}
+	%\addtolength{\hoffset}{0.5\evensidemargin-0.5\oddsidemargin} %set equal margins on the frontpage - remove this line if you want default margins
+	\vspace*{2cm}
+    \begin{center}
+    \begin{minipage}{.7\textwidth}
+	\fontsize{28}{0}{\bfseries\textsf{Martins fina latexmall}} \\
+  	[0.1cm]
+	\linethickness{0.5mm}
+    \rule{\textwidth}{3pt} \\
+	[0.35cm]
+	\textsf{\fontsize{16}{0}\selectfont Mmmmm, latex är najs}
+  	\vspace{2 cm}
+  	\begin{center}
+     {\Large\sffamily{
+    	En mall/lathund/exempel\\}
+    }
+    \vspace{2cm}
+  	{\Large\bfseries\sffamily{
+    	Version 1.0\\}
+    }
+    \smallskip
+    {\large\sffamily{
+    	\today\\}
+    }
+	\end{center}
+  	\vspace{6 cm}
+  	\begin{raggedright}
+    	{\Large\textsf{\bfseries Författare:}\\}
+    	\smallskip
+    	{\textsf{\large{\bfseries Martin Clason}, marcl188@student.liu.se}}
+  	\end{raggedright}
+	\end{minipage}
+	\vfill
+	{\large
+		Teknisk fysik och elektroteknik, Y\\
+        Tekniska högskolan vid Linköpings universitet
+	}
+	\end{center}
+\end{titlepage}
+\clearpage

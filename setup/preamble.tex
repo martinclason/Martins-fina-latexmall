@@ -1,0 +1,215 @@
+% Det här är den jobbigaste filen. Oftast behöver man inte in här och rota men det är här som alla paket och bibliotek importeras.
+% Det är även här man kan ändra sidhuvuden och sådant.
+
+% Utgått mycket från Aalborg university report
+\documentclass[11pt,a4paper]{article}
+\usepackage{luatextra}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Language, Encoding and Fonts
+% http://en.wikibooks.org/wiki/LaTeX/Internationalization
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make latex understand and use the typographic
+% rules of the language used in the document.
+\usepackage[swedish,english]{babel}
+%\usepackage{polyglossia}
+
+% Fonts
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+%\usepackage{bold-extra} % Vet inte vad denna gör
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Graphics and Tables
+% http://en.wikibooks.org/wiki/LaTeX/Importing_Graphics
+% http://en.wikibooks.org/wiki/LaTeX/Tables
+% http://en.wikibooks.org/wiki/LaTeX/Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% load a colour package
+\usepackage{xcolor}
+\definecolor{aaublue}{RGB}{33,26,82}% dark blue
+% The standard graphics inclusion package
+\usepackage{graphicx}
+% Set up how figure and table captions are displayed
+\usepackage{caption}
+\captionsetup{%
+  font=footnotesize,% set font size to footnotesize
+  labelfont=bf % bold label (e.g., Figure 3.2) font
+}
+% Make the standard latex tables look so much better
+\usepackage{array,booktabs}
+% Enable the use of frames around, e.g., theorems
+% The framed package is used in the example environment
+\usepackage{framed}
+\usepackage{float} % position with H
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Mathematics
+% http://en.wikibooks.org/wiki/LaTeX/Mathematics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defines new environments such as equation,
+% align and split 
+\usepackage{amsmath}
+% Adds new math symbols
+\usepackage{amssymb}
+% Use theorems in your document
+% The ntheorem package is also used for the example environment
+% When using thmmarks, amsmath must be an option as well. Otherwise \eqref doesn't work anymore.
+\usepackage[framed,amsmath,thmmarks]{ntheorem}
+\numberwithin{equation}{section}% To get section number in equation numbering
+%\usepackage{fourier} % Parallel slant
+\newcommand{\parallelsum}{\mathbin{\!/\mkern-5mu/\!}}
+\usepackage{IEEEtrantools}
+\usepackage{cases}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page Layout
+% http://en.wikibooks.org/wiki/LaTeX/Page_Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{showframe} % Shows documents layout and margin boxes.
+%\usepackage{layout}
+%\usepackage{titleps} % Believe change in newgeometry after \begin{document}  requires this package, laoded with \usepackage[pagestyles]{titlesec} instead
+% Change margins, papersize, etc of the document
+\usepackage[
+  left=28mm,
+  right=28mm,
+  bottom=15mm,
+  top=15mm,
+  includehead,
+  includefoot
+  ]{geometry}
+% Modify how \chapter, \section, etc. look
+% The titlesec package is very configureable
+%\usepackage{titlesec}
+%\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+%\titleformat*{\section}{\normalfont\Large\bfseries}
+%\titleformat*{\subsection}{\normalfont\large\bfseries}
+%\titleformat*{\subsubsection}{\normalfont\normalsize\bfseries}
+%\titleformat*{\paragraph}{\normalfont\normalsize\bfseries}
+%\titleformat*{\subparagraph}{\normalfont\normalsize\bfseries}
+
+% Font management
+\usepackage{fontspec}
+\usepackage[pagestyles]{titlesec}
+\usepackage{geometry}
+\defaultfontfeatures{Ligatures=TeX}
+%\usepackage{libertine}
+
+% Headings
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%\newcommand\liningnumbers{\addfontfeature{Numbers=Lining}}
+%\renewcommand{\linenumberfont}{\scriptsize\addfontfeatures{Numbers={Lining, Monospaced}}}
+%\addfontfeature{Numbers=Lining}
+
+\titleformat*{\section}{\fontsize{16}{18}\bfseries\sffamily}
+\titleformat*{\subsection}{\fontsize{14}{16}\bfseries\sffamily}
+\titleformat*{\subsubsection}{\fontsize{12}{14}\bfseries\sffamily}
+
+% Paragraph formatting
+\usepackage[parfill]{parskip}
+
+% Bullet styling
+\renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemii}{$\diamond$}
+\renewcommand{\labelitemiii}{$\circ$}
+
+% Clear empty pages between chapters
+\let\origdoublepage\cleardoublepage
+\newcommand{\clearemptydoublepage}{%
+  \clearpage
+  {\pagestyle{empty}\origdoublepage}%
+}
+\let\cleardoublepage\clearemptydoublepage
+
+% Do not stretch the content of a page. Instead,
+% insert white space at the bottom of the page
+\raggedbottom
+% Enable arithmetics with length. Useful when
+% typesetting the layout.
+\usepackage{calc}
+
+% Headers and footers
+
+\newpagestyle{titlestyle}{
+	%\setheadrule{1pt}
+    %\sethead{aaa}{aaa}{aaa}
+    \sethead{{\begin{tabular}[b]{l@{}l}
+                Inlämningsuppgift\\ 
+                Elektronik och mätteknik\\
+                TSTE05\\
+             \end{tabular}}}
+            {}
+            {{\begin{tabular}[b]{r@{}l}
+                Linköpings universitet - ISY\\ 
+				Teknisk fysik och elektroteknik\\
+				Höstterminen 2017\\
+             \end{tabular}}}
+    \addtolength\headheight{40pt}
+}
+
+\newpagestyle{main}{
+	\setheadrule{0.55pt}
+    \setfootrule{0.55pt}
+    \sethead{Inlämningsuppgift 5-000}
+            {}
+            {\thesection . \sectiontitle}
+    \setfoot{TSTE05}
+            {\thepage}
+            {Martin Clason}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography
+% http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[backend=bibtex,
+  bibencoding=utf8
+  ]{biblatex}
+\addbibresource{bib/mybib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add bibliography and index to the table of
+% contents
+\usepackage[nottoc]{tocbibind}
+% Add the command \pageref{LastPage} which refers to the
+% page number of the last page
+\usepackage{lastpage}
+% Add todo notes in the margin of the document
+\usepackage[
+%  disable, %turn off todonotes
+  colorinlistoftodos, %enable a coloured square in the list of todos
+  textwidth=\marginparwidth, %set the width of the todonotes
+  textsize=scriptsize, %size of the text in the todonotes
+  ]{todonotes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hyperlinks
+% http://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Enable hyperlinks and insert info into the pdf
+% file. Hypperref should be loaded as one of the 
+% last packages
+\usepackage{hyperref}
+\hypersetup{%
+	pdfpagelabels=true,%
+	plainpages=false,%
+	pdfauthor={Author(s)},%
+	pdftitle={Title},%
+	pdfsubject={Subject},%
+	bookmarksnumbered=true,%
+	colorlinks=false,%
+	citecolor=black,%
+	filecolor=black,%
+	linkcolor=black,% you should probably change this to black before printing
+	urlcolor=black,%
+	pdfstartview=FitH%
+}
+
+% Other
+\usepackage{blindtext}
+\usepackage{lipsum} % To write out random latin text.
